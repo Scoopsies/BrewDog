@@ -1,0 +1,10 @@
+* {
+    background: black;
+    color: white;
+}
+
+img {
+    background: rgb(63, 176, 221);
+    width: auto;
+    height: 250px;
+}

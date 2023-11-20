@@ -1,7 +1,11 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import uuid from "react-uuid";
 import Ingredients from "./components/Ingredients";
+import Method from "./components/Method";
+import Gravities from "./components/Gravities";
+import Volumes from "./components/Volumes";
+import Targets from "./components/Targets";
+import FoodPairings from "./components/FoodPairings";
 
 function App() {
   const [beers, setBeers] = useState([]);
@@ -18,56 +22,29 @@ function App() {
 
   return (
     <div>
-      <h1>Brew Dog</h1>
+      <h1>D.I.Y. DOG</h1>
       {beers.map(beer => {
         return (
-        <li key={beer.id}>
+        <li key={beer.id} className="recipe">
           <h3>{beer.name}</h3>
-          <div className="imgContainer"><img src={beer.image_url} /></div>
-          <h4>{beer.tagline}</h4>
-          <p>{beer.description}</p>
           <p>{`First Brewed: ${beer.first_brewed}`}</p>
-          <div>
-            <p>{`ABV: ${beer.abv}`}</p>
-            <p>{`IBU: ${beer.ibu}`}</p>
-            <p>{`EBC: ${beer.ebc}`}</p>
+          <h4>{beer.tagline}</h4>
+          <div className="imgContainer"><img src={beer.image_url} /></div>
+          <div className="stats">
+            <div>{beer.abv ? `ABV: ${beer.abv}%` : null}</div>
+            <div>{beer.ibu ? `IBU: ${beer.ibu}` : null}</div>
+            <div>{beer.target_og ? `OG: ${(beer.target_og / 1000).toFixed(3)}` : null}</div>
           </div>
-
+          <p>{beer.description}</p>
+          <FoodPairings beer={beer} />
           <Ingredients beer={beer} />
+          <Targets beer={beer} />
+          <Method beer={beer}/>
+          <Gravities beer={beer}/>
+          <Volumes beer={beer}/>
+          <h3>Brewers Tips:</h3>
+          <p>{beer.brewers_tips}</p>
 
-          <div className="ingredients">
-            <h4>Hops:</h4>
-            <ul className="hops">
-              {
-              beer.ingredients.hops.map(hop => {
-                return (
-                  <li key={uuid()}>
-                    <h5>{hop.name}</h5>
-                    <p>{`Attribute: ${hop.attribute}`}</p>
-                    <p>{`Add: ${hop.add}`}</p>
-                    <p>{`Amount: ${hop.amount.value} ${hop.amount.unit}`}</p>
-                  </li>
-                )
-              })}
-            </ul>
-            <h4>Malt:</h4>
-            <ul className="malt">
-              {
-                beer.ingredients.malt.map(_malt => {
-                  return (
-                    <li key={uuid()}>
-                      <h5>{_malt.name}</h5>
-                      <p>{`Amount: ${_malt.amount.value} ${_malt.amount.unit}`}</p>
-                    </li>
-                  )
-                })
-              }
-            </ul>
-            <h4>Yeast:</h4>
-            <ul>
-              <li>{beer.ingredients.yeast}</li>
-            </ul>
-          </div>
         </li>
         )
       })}

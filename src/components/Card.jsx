@@ -36,16 +36,19 @@ const Card = ({ beer }) => {
   return (
     <div className="card">
       <div className="cardContent">
-        <h3 className="cardTitle">{beer.name}</h3>
 
-        <div className="stats">
-          <div className="stat">{beer.abv ? `ABV: ${beer.abv}%` : null}</div>
-          <div className="stat">{beer.ibu ? `IBU: ${beer.ibu}` : null}</div>
-          <div className="stat">
-            {beer.target_og
-              ? `OG: ${(beer.target_og / 1000).toFixed(3)}`
-              : null}
-          </div>
+
+        <div className="cardTop">
+            <h3 className="cardTitle">{beer.name}</h3>
+            <div className="stats">
+              <div className="stat">{beer.abv ? `ABV: ${beer.abv}%` : null}</div>
+              <div className="stat">{beer.ibu ? `IBU: ${beer.ibu}` : null}</div>
+              <div className="stat">
+                {beer.target_og
+                  ? `OG: ${(beer.target_og / 1000).toFixed(3)}`
+                  : null}
+              </div>
+            </div>
         </div>
 
         <div className="cardCenter">

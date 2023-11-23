@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import Filters from "./components/Filters";
 import Recipe from "./components/Recipe";
+import Card from "./components/Card";
 
 function App() {
   const [beers, setBeers] = useState([]);
@@ -32,7 +33,7 @@ function App() {
       <div className="recipeContainer">
         {beers.map(beer => {
           return (
-            <Recipe key={beer.id} beer={beer}/>
+            <Card key={beer.id} beer={beer} />
           )
         })}
       </div>

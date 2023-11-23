@@ -1,5 +1,5 @@
 html {
-    background: rgb(63, 176, 221);
+    background: black;
     color: white;
 }
 
@@ -25,6 +25,7 @@ img {
     color: cornsilk;
     font-weight: bold;
     border-radius: 1rem;
+    width: 100%;
 }
 
 .cardCenter {
@@ -40,6 +41,12 @@ img {
     margin: 0;
     padding: 5px;
     color: black;
+}
+
+.cardTop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .ingredients {
@@ -88,6 +95,8 @@ img {
 .cardBottom {
     padding: 0.25rem;
     color: black;
+    display: flex;
+    justify-content: center;
 }
 
 h1 {

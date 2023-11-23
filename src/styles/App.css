@@ -26,6 +26,7 @@ img {
     font-weight: bold;
     border-radius: 1rem;
     width: 100%;
+    max-width: 500px;
 }
 
 .cardCenter {

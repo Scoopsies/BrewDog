@@ -1,53 +1,43 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import Ingredients from "./components/Ingredients";
-import Method from "./components/Method";
-import Gravities from "./components/Gravities";
-import Volumes from "./components/Volumes";
-import Targets from "./components/Targets";
-import FoodPairings from "./components/FoodPairings";
+import Filters from "./components/Filters";
+import Recipe from "./components/Recipe";
 
 function App() {
   const [beers, setBeers] = useState([]);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const fetchData = async() => {
-      const {data} = await axios.get('https://api.punkapi.com/v2/beers')
+      const {data} = await axios.get(`https://api.punkapi.com/v2/beers?page=1&per_page=80`)
       setBeers(data)
     }
     fetchData()
   }, [])
+
+  const loadMore = () => {
+    const fetchData = async() => {
+      const {data} = await axios.get(`https://api.punkapi.com/v2/beers?page=${page + 1}&per_page=80`)
+      setBeers([...beers, ...data])
+    }
+    fetchData()
+    setPage(page + 1)
+  }
 
   console.log(beers)
 
   return (
     <div>
       <h1>D.I.Y. DOG</h1>
-      {beers.map(beer => {
-        return (
-        <li key={beer.id} className="recipe">
-          <h3>{beer.name}</h3>
-          <p>{`First Brewed: ${beer.first_brewed}`}</p>
-          <h4>{beer.tagline}</h4>
-          <div className="imgContainer"><img src={beer.image_url} /></div>
-          <div className="stats">
-            <div>{beer.abv ? `ABV: ${beer.abv}%` : null}</div>
-            <div>{beer.ibu ? `IBU: ${beer.ibu}` : null}</div>
-            <div>{beer.target_og ? `OG: ${(beer.target_og / 1000).toFixed(3)}` : null}</div>
-          </div>
-          <p>{beer.description}</p>
-          <FoodPairings beer={beer} />
-          <Ingredients beer={beer} />
-          <Targets beer={beer} />
-          <Method beer={beer}/>
-          <Gravities beer={beer}/>
-          <Volumes beer={beer}/>
-          <h3>Brewers Tips:</h3>
-          <p>{beer.brewers_tips}</p>
-
-        </li>
-        )
-      })}
+      <Filters/>
+      <div className="recipeContainer">
+        {beers.map(beer => {
+          return (
+            <Recipe key={beer.id} beer={beer}/>
+          )
+        })}
+      </div>
+      <button onClick={() => loadMore()}>Load More</button>
     </div>
     
   )

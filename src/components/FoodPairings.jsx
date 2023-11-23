@@ -4,7 +4,7 @@ const FoodPairings = ({beer}) => {
   return (
     <div className='foodPairings'>
         <h3>Food Pairings:</h3>
-        <ul>
+        <ul className='pairings'>
             {beer.food_pairing.map(food => {
                 return (
                     <li key={uuid()}>{food}</li>

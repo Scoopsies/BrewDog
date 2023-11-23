@@ -1,12 +1,89 @@
-* {
-    background: black;
+html {
+    background: rgb(63, 176, 221);
     color: white;
 }
 
 img {
-    background: rgb(63, 176, 221);
     width: auto;
     height: 250px;
+    /* padding: 0px 30px; */
+}
+
+.cardLeft {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(63, 176, 221);
+    padding: 0.5rem;
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(63, 176, 221);
+    color: cornsilk;
+    font-weight: bold;
+    border-radius: 1rem;
+}
+
+.cardCenter {
+    display: flex;
+    flex-direction: row;
+    border-top: 2px black solid;
+    border-bottom: 2px black solid;
+}
+
+.cardTitle {
+    /* text-decoration: underline; */
+    font-weight: bolder;
+    margin: 0;
+    padding: 5px;
+    color: black;
+}
+
+.ingredients {
+    text-align: center;
+    padding: 5px;
+}
+
+.cardRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.25rem;
+    background-color: rgb(63, 176, 221);
+    text-align: center;
+}
+
+.infoRight{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(63, 176, 221);
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-bottom: 0.25rem;
+    background-color: rgb(63, 176, 221);
+    color: cornsilk;
+    font-weight: bold;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardBottom {
+    padding: 0.25rem;
+    color: black;
 }
 
 h1 {
@@ -25,13 +102,38 @@ li {
     border: 1px red solid;
     display: flex;
     flex-direction: column;
+    background-color: black;
 
     text-align: center;
     padding: 1rem;
 }
 
-.stats {
+.recipeContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.pages {
     display: flex;
     justify-content: space-around;
     margin-top: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.method,
+.target,
+.ingredientPair,
+.pairings {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    flex-wrap: wrap;
+    gap: 1rem
+}
+
+.check {
+    display: flex;
+    justify-content: space-between;
 }

@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-const Card = ({beer}) => {
+const Card = ({ beer }) => {
   // Converts numeric month to string
   const dateStr = () => {
     const brewed = beer.first_brewed.split("/");
@@ -35,56 +35,56 @@ const Card = ({beer}) => {
 
   return (
     <div className="card">
-    <div className="cardContent">
-      <h3 className="cardTitle">{beer.name}</h3>
+      <div className="cardContent">
+        <h3 className="cardTitle">{beer.name}</h3>
 
-      <div className="stats">
-        <div>{beer.abv ? `ABV: ${beer.abv}%` : null}</div>
-        <div>{beer.ibu ? `IBU: ${beer.ibu}` : null}</div>
-        <div>
-          {beer.target_og
-            ? `OG: ${(beer.target_og / 1000).toFixed(3)}`
-            : null}
-        </div>
-      </div>
-
-      <div className="cardCenter">
-        <div className="cardLeft">
-          <div className="imageContainer">
-            <img
-              src={
-                beer.image_url
-                  ? beer.image_url
-                  : "https://images.punkapi.com/v2/keg.png"
-              }
-            />
+        <div className="stats">
+          <div className="stat">{beer.abv ? `ABV: ${beer.abv}%` : null}</div>
+          <div className="stat">{beer.ibu ? `IBU: ${beer.ibu}` : null}</div>
+          <div className="stat">
+            {beer.target_og
+              ? `OG: ${(beer.target_og / 1000).toFixed(3)}`
+              : null}
           </div>
         </div>
 
-        <div className="cardRight">
-          <div className="ingredients">
-            <div className="cardTitle">Hops:</div>
-            {ingredientList(beer.ingredients.hops)}
+        <div className="cardCenter">
+          <div className="cardLeft">
+            <div className="imageContainer">
+              <img
+                src={
+                  beer.image_url
+                    ? beer.image_url
+                    : "https://images.punkapi.com/v2/keg.png"
+                }
+              />
+            </div>
           </div>
 
-          <div className="ingredients">
-            <div className="cardTitle">Malt:</div>
-            {ingredientList(beer.ingredients.malt)}
-          </div>
+          <div className="cardRight">
+            <div className="ingredients">
+              <div className="cardTitle">Hops:</div>
+              {ingredientList(beer.ingredients.hops)}
+            </div>
 
-          <div className="ingredients">
-            <div className="cardTitle">Yeast:</div>
-            <div>{beer.ingredients.yeast}</div>
+            <div className="ingredients">
+              <div className="cardTitle">Malt:</div>
+              {ingredientList(beer.ingredients.malt)}
+            </div>
+
+            <div className="ingredients">
+              <div className="cardTitle">Yeast:</div>
+              <div>{beer.ingredients.yeast}</div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="cardBottom">
-        <div>{`First Brewed: ${dateStr()}`}</div>
+        <div className="cardBottom">
+          <div>{`First Brewed: ${dateStr()}`}</div>
+        </div>
       </div>
     </div>
-  </div>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;

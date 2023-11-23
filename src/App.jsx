@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
     const fetchData = async() => {
-      const {data} = await axios.get(`https://api.punkapi.com/v2/beers?page=1&per_page=80`)
+      const {data} = await axios.get(`https://api.punkapi.com/v2/beers?page=1&per_page=10`)
       setBeers(data)
     }
     fetchData()
@@ -17,7 +17,7 @@ function App() {
 
   const loadMore = () => {
     const fetchData = async() => {
-      const {data} = await axios.get(`https://api.punkapi.com/v2/beers?page=${page + 1}&per_page=80`)
+      const {data} = await axios.get(`https://api.punkapi.com/v2/beers?page=${page + 1}&per_page=10`)
       setBeers([...beers, ...data])
     }
     fetchData()
@@ -29,7 +29,6 @@ function App() {
   return (
     <div>
       <h1>D.I.Y. DOG</h1>
-      <Filters/>
       <div className="recipeContainer">
         {beers.map(beer => {
           return (

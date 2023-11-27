@@ -4,28 +4,9 @@ import Ingredients from "./Ingredients";
 import Targets from "./Targets";
 import Method from "./Method";
 import Card from "./Card";
+import BeerType from "../Types/BeerType.types";
 
-const Recipe = ({ beer }) => {
-  // Converts numeric month to string
-  const dateStr = () => {
-    const brewed = beer.first_brewed.split("/");
-    const months = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sept",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-    brewed[0] = months[brewed[0] * 1 - 1];
-    return brewed.join(" ");
-  };
+const Recipe = ({ beer } : {beer: BeerType}) => {
 
   return (
     <div className="recipe">

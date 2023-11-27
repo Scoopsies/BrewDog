@@ -1,25 +1,9 @@
-type TypeBeer = {
-  first_brewed: string,
-  abv: number,
-  ibu: number,
-  name: string,
-  target_og: number,
-  image_url: string,
-  ingredients: {
-    hops: typeIngredient[],  
-    malt: typeIngredient[], 
-    yeast: string 
-  }
-}
+import BeerType from "../Types/BeerType.types";
 
-type typeIngredient = {
-  name : string
-}
-
-const Card = ({ beer } : {beer: TypeBeer}) => {
+const Card = ({ beer } : {beer: BeerType}) => {
 
   // Removes duplicate hop or malt and from array and lists out as seperate divs
-  const ingredientList = (hopOrMalt : typeIngredient[]) => {
+  const ingredientList = (hopOrMalt : {name: string}[]) => {
     const ingredients = hopOrMalt.map((ingredient) => ingredient.name);
     const filtered = ingredients.filter(
       (ingredient, index) => ingredients.indexOf(ingredient) === index

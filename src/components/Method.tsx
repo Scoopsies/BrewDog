@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from "uuid"
+import BeerType from "../Types/BeerType.types"
 
-const Method = ({beer}) => {
+const Method = ({beer} : {beer: BeerType}) => {
   const {method} = beer
   return (
     <div >

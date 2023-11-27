@@ -1,4 +1,6 @@
-const Gravities = ({beer}) => {
+import BeerType from "../Types/BeerType.types"
+
+const Gravities = ({beer} : {beer: BeerType}) => {
   return (
     <div className='gravities'>
         <h3>Gravities:</h3>

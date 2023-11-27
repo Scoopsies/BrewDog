@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from "uuid"
+import BeerType from "../Types/BeerType.types"
 
-const Ingredients = ({beer}) => {
+const Ingredients = ({beer} : {beer: BeerType}) => {
 
   return (
     <div className="ingredients">

@@ -1,10 +1,6 @@
-import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from "react"
+import BeerType from "../Types/BeerType.types"
 
-type Beer = {
-  foodPairing: string[]
-}
-
-const FoodPairings = ({beer}: {beer: Beer}) => {
+const FoodPairings = ({beer}: {beer: BeerType}) => {
   return (
     <div className='foodPairings'>
         <h3>Food Pairings:</h3>

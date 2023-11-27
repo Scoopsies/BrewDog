@@ -1,4 +1,6 @@
-const Volumes = ({beer}) => {
+import BeerType from "../Types/BeerType.types"
+
+const Volumes = ({beer} : {beer: BeerType }) => {
   return (
     <div className='volumes'>
         <h3>Volumes:</h3>

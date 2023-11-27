@@ -1,4 +1,4 @@
-import uuid from 'react-uuid'
+import { v4 as uuidv4 } from "uuid"
 
 const Method = ({beer}) => {
   const {method} = beer
@@ -12,7 +12,7 @@ const Method = ({beer}) => {
             {
               method.mash_temp.map(mash => {
                 return (
-                  <div key={uuid()}>
+                  <div key={uuidv4()}>
                     {`${mash.temp.value} ${mash.temp.unit} for ${mash.duration} minutes`}
                   </div>
                 )

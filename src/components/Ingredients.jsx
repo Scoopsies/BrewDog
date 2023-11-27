@@ -1,4 +1,4 @@
-import uuid from 'react-uuid'
+import { v4 as uuidv4 } from "uuid"
 
 const Ingredients = ({beer}) => {
 
@@ -13,7 +13,7 @@ const Ingredients = ({beer}) => {
         {
           beer.ingredients.malt.map(_malt => {
             return (
-                <li key={uuid()}>{`
+                <li key={uuidv4()}>{`
                 ${_malt.amount.value}
                 ${_malt.amount.unit}
                 ${_malt.name}`}</li>
@@ -26,7 +26,7 @@ const Ingredients = ({beer}) => {
         {
         beer.ingredients.hops.map(hop => {
           return (
-            <div key={uuid()}>
+            <div key={uuidv4()}>
                 <li>{`
                 ${hop.amount.value}
                 ${hop.amount.unit}
@@ -52,7 +52,7 @@ const Ingredients = ({beer}) => {
         {
           beer.method.twist.split(',').map(_twist => {
             return (
-              <li key={uuid()}>{_twist}</li>
+              <li key={uuidv4()}>{_twist}</li>
             )
           })
         }

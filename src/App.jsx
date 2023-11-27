@@ -1,7 +1,5 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import Filters from "./components/Filters";
-import Recipe from "./components/Recipe";
 import Card from "./components/Card";
 
 function App() {

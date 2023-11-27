@@ -1,4 +1,4 @@
-import uuid from 'react-uuid'
+import { v4 as uuidv4 } from "uuid"
 
 const FoodPairings = ({beer}) => {
   return (
@@ -7,7 +7,7 @@ const FoodPairings = ({beer}) => {
         <ul className='pairings'>
             {beer.food_pairing.map(food => {
                 return (
-                    <li key={uuid()}>{food}</li>
+                    <li key={uuidv4()}>{food}</li>
                 )
             })}
         </ul>

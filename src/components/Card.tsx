@@ -1,29 +1,25 @@
-import React from "react";
+type TypeBeer = {
+  first_brewed: string,
+  abv: number,
+  ibu: number,
+  name: string,
+  target_og: number,
+  image_url: string,
+  ingredients: {
+    hops: typeIngredient[],  
+    malt: typeIngredient[], 
+    yeast: string 
+  }
+}
 
-const Card = ({ beer }) => {
-  // Converts numeric month to string
-  const dateStr = () => {
-    const brewed = beer.first_brewed.split("/");
-    const months = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sept",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-    brewed[0] = months[brewed[0] * 1 - 1];
-    return brewed.join(" ");
-  };
+type typeIngredient = {
+  name : string
+}
+
+const Card = ({ beer } : {beer: TypeBeer}) => {
 
   // Removes duplicate hop or malt and from array and lists out as seperate divs
-  const ingredientList = (hopOrMalt) => {
+  const ingredientList = (hopOrMalt : typeIngredient[]) => {
     const ingredients = hopOrMalt.map((ingredient) => ingredient.name);
     const filtered = ingredients.filter(
       (ingredient, index) => ingredients.indexOf(ingredient) === index
@@ -32,6 +28,27 @@ const Card = ({ beer }) => {
       return <div key={ingredient}>{ingredient}</div>;
     });
   };
+
+    // Converts numeric month to string
+    const dateStr = () => {
+      const brewed = beer.first_brewed.split("/");
+      const months = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sept",
+        "Oct",
+        "Nov",
+        "Dec",
+      ];
+      brewed[0] = months[Number(brewed[0]) - 1];
+      return brewed.join(" ");
+    };
 
   return (
     <div className="card">

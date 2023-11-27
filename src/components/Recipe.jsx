@@ -1,4 +1,4 @@
-import React from "react";
+
 import FoodPairings from "./FoodPairings";
 import Ingredients from "./Ingredients";
 import Targets from "./Targets";
@@ -25,17 +25,6 @@ const Recipe = ({ beer }) => {
     ];
     brewed[0] = months[brewed[0] * 1 - 1];
     return brewed.join(" ");
-  };
-
-  // Removes duplicate hop or malt and from array and lists out as seperate divs
-  const ingredientList = (hopOrMalt) => {
-    const ingredients = hopOrMalt.map((ingredient) => ingredient.name);
-    const filtered = ingredients.filter(
-      (ingredient, index) => ingredients.indexOf(ingredient) === index
-    );
-    return filtered.map((ingredient) => {
-      return <div key={ingredient}>{ingredient}</div>;
-    });
   };
 
   return (

@@ -1,4 +1,5 @@
 type BeerType = {
+    id: number,
     srm: number,
     ph: number,
     attenuation_level: number,

@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid"
 import BeerType from "../Types/BeerType.types"
 
 const Method = ({beer} : {beer: BeerType}) => {
@@ -11,9 +10,9 @@ const Method = ({beer} : {beer: BeerType}) => {
           <div>
             <h5>{method.mash_temp.length === 1 ?`Mash Temperature:` : 'Mash Temperatures:'}</h5>
             {
-              method.mash_temp.map(mash => {
+              method.mash_temp.map((mash, index) => {
                 return (
-                  <div key={uuidv4()}>
+                  <div key={index}>
                     {`${mash.temp.value} ${mash.temp.unit} for ${mash.duration} minutes`}
                   </div>
                 )

@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid"
 import BeerType from "../Types/BeerType.types"
 
 const Ingredients = ({beer} : {beer: BeerType}) => {
@@ -12,9 +11,9 @@ const Ingredients = ({beer} : {beer: BeerType}) => {
       <ul className="malt">
       <h4>Malt:</h4>
         {
-          beer.ingredients.malt.map(_malt => {
+          beer.ingredients.malt.map((_malt, index) => {
             return (
-                <li key={uuidv4()}>{`
+                <li key={index}>{`
                 ${_malt.amount.value}
                 ${_malt.amount.unit}
                 ${_malt.name}`}</li>
@@ -25,9 +24,9 @@ const Ingredients = ({beer} : {beer: BeerType}) => {
       <ul className="hops">
       <h4>Hops:</h4>
         {
-        beer.ingredients.hops.map(hop => {
+        beer.ingredients.hops.map((hop, index) => {
           return (
-            <div key={uuidv4()}>
+            <div key={index}>
                 <li>{`
                 ${hop.amount.value}
                 ${hop.amount.unit}
@@ -51,9 +50,9 @@ const Ingredients = ({beer} : {beer: BeerType}) => {
       <ul className="twist">
         <h4>Twist:</h4>
         {
-          beer.method.twist.split(',').map(_twist => {
+          beer.method.twist.split(',').map((_twist, index) => {
             return (
-              <li key={uuidv4()}>{_twist}</li>
+              <li key={index}>{_twist}</li>
             )
           })
         }

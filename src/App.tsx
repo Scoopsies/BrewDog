@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useEffect} from "react"
+import { useEffect, useState} from "react"
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useInView } from "react-intersection-observer";
 
@@ -13,7 +13,7 @@ function App() {
   });
 
   const fetchData = async ({pageParam}: {pageParam: number}) => {
-    const {data} = await axios.get(`https://api.punkapi.com/v2/beers?page=${pageParam}&per_page=10`)
+    const {data} = await axios.get(`https://api.punkapi.com/v2/beers?page=${pageParam}`)
     return data
   }
 
@@ -24,7 +24,8 @@ function App() {
     initialPageParam: 1,
     getNextPageParam: (lastPage, allPages) => {
       return lastPage.length ? allPages.length + 1 : undefined
-    }
+    },
+    
   })
 
   useEffect(() => {
@@ -42,6 +43,7 @@ function App() {
 
   return (
     <div>
+      <h1>Your the man now Diy Dog</h1>
       <div className="recipeContainer">
         {content}
       </div>

@@ -1,6 +1,6 @@
 import BeerType from "../Types/BeerType.types";
 
-const Card = ({ beer } : {beer: BeerType}) => {
+const Card = ({ beer} : {beer: BeerType}) => {
 
   // Removes duplicate hop or malt and from array and lists out as seperate divs
   const ingredientList = (hopOrMalt : {name: string}[]) => {

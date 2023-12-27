@@ -2,31 +2,51 @@ import axios from "axios"
 import { useEffect, useState} from "react"
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useInView } from "react-intersection-observer";
-
 import Card from "./components/Card";
 import BeerType from "./Types/BeerType.types";
+import Filters from "./components/Filters";
+import { queryParams } from "./Types/ParamType.types";
+
+type CustomQueryKey = [string, queryParams];
 
 function App() {
+
+  const initialQueryParams = {
+    beer_name: '',
+    abv_lt: 0,
+    abv_gt: 0,
+    ibu_lt: 0,
+    ibu_gt: 0
+  }
+
+  const [filterMode, setFilterMode] = useState(false)
+  const [queryParams, setQueryParams] = useState(initialQueryParams)
+
+  const params = Object.entries(queryParams).filter(pair => pair[1]).map(pair => pair.join('=')).join('&')
+  console.log(params)
 
   const { ref, inView} = useInView({
     threshold: 0,
   });
 
-  const fetchData = async ({pageParam}: {pageParam: number}) => {
-    const {data} = await axios.get(`https://api.punkapi.com/v2/beers?page=${pageParam}`)
-    return data
+  const fetchData = async ({ pageParam = 1, queryKey }: { pageParam?: number; queryKey: CustomQueryKey }): Promise<any> => {
+    const params = Object.entries(queryKey[1]).filter(pair => pair[1]).map(pair => pair.join('=')).join('&');
+    const { data } = await axios.get(`https://api.punkapi.com/v2/beers?page=${pageParam}&${params}`);
+    return data;
   }
-
-
-  const {data, isLoading, isError, error, fetchNextPage, hasNextPage} = useInfiniteQuery({
-    queryKey: ['beers'],
+  
+  const queryKey: CustomQueryKey = ['beers', queryParams];
+  
+  const { data, isLoading, isError, error, fetchNextPage, hasNextPage } = useInfiniteQuery({
+    queryKey,
     queryFn: fetchData,
     initialPageParam: 1,
     getNextPageParam: (lastPage, allPages) => {
-      return lastPage.length ? allPages.length + 1 : undefined
+      return lastPage.length ? allPages.length + 1 : undefined;
     },
-    
-  })
+  });
+  
+  
 
   useEffect(() => {
     if (inView && hasNextPage) {
@@ -37,13 +57,17 @@ function App() {
   if (isLoading) return <div>Loading...</div>
   if (isError) return <div>{`${error}`}</div>
 
-  const content = data?.pages.map(beers => beers.map((beer: BeerType, index : number) => {
+  const filters = filterMode ? <Filters setFilterMode={setFilterMode} queryParams={queryParams} setQueryParams={setQueryParams} initialQueryParams={initialQueryParams}/> 
+  : <button onClick={() => setFilterMode(true)}>Filter</button>
+
+  const content = data?.pages.map(beers => beers.map((beer: BeerType) => {
     return <Card key={beer.id} beer={beer} />
   }))
 
   return (
     <div>
       <h1>Your the man now Diy Dog</h1>
+      {filters}
       <div className="recipeContainer">
         {content}
       </div>

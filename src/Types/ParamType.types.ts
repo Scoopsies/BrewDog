@@ -7,7 +7,6 @@ export type queryParams = {
   }
 
 type FilterProps = {
-  setFilterMode: React.Dispatch<React.SetStateAction<boolean>>,
   queryParams: queryParams,
   setQueryParams: React.Dispatch<React.SetStateAction<queryParams>>,
   initialQueryParams: queryParams

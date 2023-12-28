@@ -1,8 +1,9 @@
 import { FormEvent, useState } from "react";
 import FilterProps from "../Types/ParamType.types";
 
-const Filters = ({ setFilterMode, queryParams, setQueryParams, initialQueryParams }: FilterProps) => {
+const Filters = ({ queryParams, setQueryParams, initialQueryParams }: FilterProps) => {
   const [formData, setFormData] = useState(queryParams);
+  const [filterMode, setFilterMode] = useState(false)
 
   const handleChange = (e: FormEvent) => {
     const { name, value } = e.target as HTMLInputElement;
@@ -15,23 +16,31 @@ const Filters = ({ setFilterMode, queryParams, setQueryParams, initialQueryParam
 
   const clearParams = () => {
     setQueryParams(initialQueryParams);
+    setFormData(initialQueryParams)
     setFilterMode(false)
+    console.log(queryParams)
   }
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
     setQueryParams(formData);
-    setFilterMode(false)
+    setFilterMode(false);
+    console.log(queryParams)
   }
 
+  if (!filterMode) return (
+    <div className="filters">
+    <button onClick={() => setFilterMode(!filterMode)}>Filter</button>
+  </div>
+  )
+
   return (
-    <div>
+    <div className="filters">
       <form onSubmit={handleSubmit}>
         <label>
-          {" "}
-          Name
+          Name:
           <input
-            type="string"
+            type="search"
             name="beer_name"
             value={formData.beer_name}
             onChange={handleChange}
@@ -39,7 +48,7 @@ const Filters = ({ setFilterMode, queryParams, setQueryParams, initialQueryParam
         </label>
         <br />
         <label>
-          ABV Less Than
+          ABV Less Than:
           <input
             type="number"
             name="abv_lt"
@@ -49,7 +58,7 @@ const Filters = ({ setFilterMode, queryParams, setQueryParams, initialQueryParam
         </label>
         <br />
         <label>
-          ABV Great Than
+          ABV Great Than:
           <input
             type="number"
             name="abv_gt"
@@ -59,7 +68,7 @@ const Filters = ({ setFilterMode, queryParams, setQueryParams, initialQueryParam
         </label>
         <br />
         <label>
-          IBU Less Than
+          IBU Less Than:
           <input
             type="number"
             name="ibu_lt"
@@ -69,7 +78,7 @@ const Filters = ({ setFilterMode, queryParams, setQueryParams, initialQueryParam
         </label>
         <br />
         <label>
-          IBU Greater Than
+          IBU Greater Than:
           <input
             type="number"
             name="ibu_gt"
@@ -79,8 +88,10 @@ const Filters = ({ setFilterMode, queryParams, setQueryParams, initialQueryParam
         </label>
         <br />
 
-        <button type="submit">set filters</button>
-        <button type="button" onClick={clearParams}>Clear</button>
+        <div className="filterButtons">
+          <button type="submit">set filters</button>
+          <button type="button" onClick={clearParams}>Clear</button>
+        </div>
       </form>
     </div>
   );

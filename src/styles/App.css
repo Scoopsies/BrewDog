@@ -1,6 +1,6 @@
 html {
     background: black;
-    color: white;
+    color: rgb(63, 176, 221);
 }
 
 img {
@@ -172,4 +172,12 @@ label {
 .filterButtons {
     display: flex;
     justify-content: flex-start;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    font-weight: bolder;
+    color: rgb(63, 176, 221);
 }

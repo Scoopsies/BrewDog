@@ -18,14 +18,12 @@ const Filters = ({ queryParams, setQueryParams, initialQueryParams }: FilterProp
     setQueryParams(initialQueryParams);
     setFormData(initialQueryParams)
     setFilterMode(false)
-    console.log(queryParams)
   }
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
     setQueryParams(formData);
     setFilterMode(false);
-    console.log(queryParams)
   }
 
   if (!filterMode) return (

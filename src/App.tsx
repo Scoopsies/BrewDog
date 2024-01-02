@@ -1,7 +1,13 @@
 import { Routes, Route } from "react-router-dom";
 import Recipes from "./components/Recipes";
+import Test from "./components/Test";
+import Recipe from "./components/Recipe";
 
 function App() {
+
+  
+
+  
 
   return (
     <div>
@@ -9,6 +15,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Recipes/>} />
+        <Route path="/beer/:id" element={<Recipe/>} />
       </Routes>
 
     </div>

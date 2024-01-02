@@ -5,7 +5,7 @@ const FoodPairings = ({beer}: {beer: BeerType}) => {
     <div className='foodPairings'>
         <h3>Food Pairings:</h3>
         <ul className='pairings'>
-            {beer.foodPairing.map(food => {
+            {beer.food_pairing.map(food => {
                 return (
                     <li key={food}>{food}</li>
                 )

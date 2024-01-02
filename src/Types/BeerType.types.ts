@@ -13,7 +13,7 @@ type BeerType = {
     target_fg: number,
     target_og: number,
     image_url: string,
-    foodPairing: string[],
+    food_pairing: string[],
     ingredients: {
       malt: {
         name: string,

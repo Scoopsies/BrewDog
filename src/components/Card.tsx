@@ -1,4 +1,5 @@
 import BeerType from "../Types/BeerType.types";
+import { Link } from "react-router-dom";
 
 const Card = ({ beer} : {beer: BeerType}) => {
 
@@ -40,7 +41,9 @@ const Card = ({ beer} : {beer: BeerType}) => {
 
 
         <div className="cardTop">
-            <h3 className="cardTitle">{beer.name}</h3>
+            <Link to={`beer/${beer.id}`}>
+              <h3 className="cardTitle">{beer.name}</h3>
+            </Link>
             <div className="stats">
               <div className="stat">{beer.abv ? `ABV: ${beer.abv}%` : null}</div>
               <div className="stat">{beer.ibu ? `IBU: ${beer.ibu}` : null}</div>
@@ -55,13 +58,13 @@ const Card = ({ beer} : {beer: BeerType}) => {
         <div className="cardCenter">
           <div className="cardLeft">
             <div className="imageContainer">
-              <img
-                src={
-                  beer.image_url
-                    ? beer.image_url
-                    : "https://images.punkapi.com/v2/keg.png"
-                }
-              />
+                <img
+                  src={
+                    beer.image_url
+                      ? beer.image_url
+                      : "https://images.punkapi.com/v2/keg.png"
+                  }
+                />
             </div>
           </div>
 

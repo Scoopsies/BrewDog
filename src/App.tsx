@@ -4,19 +4,13 @@ import Recipe from "./components/Recipe";
 
 function App() {
 
-  
-
-  
-
   return (
     <div>
       <h1>Diy Dog</h1>
-
       <Routes>
         <Route path="/" element={<Recipes/>} />
         <Route path="/beer/:id" element={<Recipe/>} />
       </Routes>
-
     </div>
   );
 }

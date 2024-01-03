@@ -4,39 +4,41 @@ const Ingredients = ({beer} : {beer: BeerType}) => {
 
   return (
     <div className="ingredients">
-    <h3>Ingredients:</h3>
-
-
-    <div className="ingredientPair">
-      <ul className="malt">
-      <h4>Malt:</h4>
-        {
-          beer.ingredients.malt.map((_malt, index) => {
-            return (
-                <li key={index}>{`
-                ${_malt.amount.value}
-                ${_malt.amount.unit}
-                ${_malt.name}`}</li>
-            )
-          })
-        }
-      </ul>
-      <ul className="hops">
-      <h4>Hops:</h4>
-        {
-        beer.ingredients.hops.map((hop, index) => {
-          return (
-            <div key={index}>
-                <li>{`
-                ${hop.amount.value}
-                ${hop.amount.unit}
-                ${hop.name}
-                @ ${hop.add} ${hop.add === 'dry hop' ? '' : 'of boil'}
-                (for ${hop.attribute}${hop.attribute === 'aroma' ? '' : 'ing' })`}</li>
-            </div>
-          )
-        })}
-      </ul>
+      <h3>Ingredients:</h3>
+      <div className="ingredientPair">
+        <ul className="malt">
+          <li>Boil Volume: 25L</li>
+          <li>Final Volume: 20L</li>
+        </ul>
+        <ul className="malt">
+          <h4>Malt:</h4>
+            {
+              beer.ingredients.malt.map((_malt, index) => {
+                return (
+                    <li key={index}>{`
+                    ${_malt.amount.value}
+                    ${_malt.amount.unit}
+                    ${_malt.name}`}</li>
+                )
+              })
+            }
+          </ul>
+          <ul className="hops">
+          <h4>Hops:</h4>
+            {
+            beer.ingredients.hops.map((hop, index) => {
+              return (
+                <div key={index}>
+                    <li>{`
+                    ${hop.amount.value}
+                    ${hop.amount.unit}
+                    ${hop.name}
+                    @ ${hop.add} ${hop.add === 'dry hop' ? '' : 'of boil'}
+                    (for ${hop.attribute}${hop.attribute === 'aroma' ? '' : 'ing' })`}</li>
+                </div>
+              )
+            })}
+        </ul>
     </div>
 
 

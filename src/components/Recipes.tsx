@@ -6,6 +6,7 @@ import Filters from "./Filters";
 import { queryParams } from "../Types/ParamType.types";
 import axios from "axios";
 import { useInfiniteQuery } from "@tanstack/react-query";
+import { ScrollButton } from "./ScrollToTop";
 
 const Recipes = () => {
 
@@ -83,6 +84,7 @@ const Recipes = () => {
           <div className="loading">
             <div ref={ref}>{hasNextPage ? "Loading More..." : "End of list"}</div>
           </div>
+          <ScrollButton/>
         </div>
       )
 }

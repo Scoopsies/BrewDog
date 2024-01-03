@@ -1,13 +1,46 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom"
+
+export const scrollToTop = () => {
+    window.scrollTo(0, 0);
+}
+
+export const ScrollButton = () => {
+    const [scrollY, setScrollY] = useState(0)
+
+    useEffect(() => {
+        const handleScroll = () => {
+          setScrollY(window.scrollY);
+        };
+    
+        window.addEventListener('scroll', handleScroll);
+    
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        };
+      }, []);
+
+    return (
+        <button 
+            className="toTop" 
+            onClick={scrollToTop}
+            style={{display: scrollY > 1500 ? 'block' : 'none'}}
+            >
+            
+            To the Top
+        </button>
+    )
+} 
 
 const ScrollToTop = () => {
     const {pathname} = useLocation();
 
     useEffect(() => {
-        window.scrollTo(0,0);
+        scrollToTop()
     }, [pathname]);
     
     return null;
 }
+
+
 export default ScrollToTop

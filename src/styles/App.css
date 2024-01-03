@@ -1,6 +1,7 @@
 html {
     background: black;
     color: rgb(63, 176, 221);
+    scroll-behavior: smooth;
 }
 
 img {
@@ -147,6 +148,10 @@ li {
     gap: 1rem
 }
 
+.ingredientPair {
+    flex-direction: column;
+}
+
 .check {
     display: flex;
     justify-content: space-between;
@@ -180,4 +185,11 @@ label {
     margin-top: 2rem;
     font-weight: bolder;
     color: rgb(63, 176, 221);
+}
+
+.toTop {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 0.25rem;
 }

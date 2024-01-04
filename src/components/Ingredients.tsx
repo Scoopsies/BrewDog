@@ -7,10 +7,6 @@ const Ingredients = ({beer} : {beer: BeerType}) => {
       <h3>Ingredients:</h3>
       <div className="ingredientPair">
         <ul className="malt">
-          <li>Boil Volume: 25L</li>
-          <li>Final Volume: 20L</li>
-        </ul>
-        <ul className="malt">
           <h4>Malt:</h4>
             {
               beer.ingredients.malt.map((_malt, index) => {

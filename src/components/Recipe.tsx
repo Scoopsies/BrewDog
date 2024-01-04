@@ -9,9 +9,12 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import conversions from "../functions/conversions";
 
 
 const Recipe = () => {
+  const [measurement, setMeasurement] = useState(true);
   const {id} = useParams()
 
   const fetchData = async() => {
@@ -36,7 +39,13 @@ const Recipe = () => {
     <div>Error</div>
   )
   
-  const beer = data;
+  let beer = data;
+
+  const handleClick = () => {
+    console.log('clicked')
+    beer = conversions(beer)
+    setMeasurement(!measurement)
+  }
 
   if (data) return (
     <div>
@@ -46,6 +55,7 @@ const Recipe = () => {
           <h4>{`"${beer.tagline}"`}</h4>
           <div>{beer.description}</div>
           <FoodPairings beer={beer} />
+          <button onClick={handleClick}>{measurement ? 'convert to Imperial' : 'convert to Metric'}</button>
           <Ingredients beer={beer} />
           <Targets beer={beer} />
           <Method beer={beer} />

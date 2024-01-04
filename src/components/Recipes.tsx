@@ -4,7 +4,6 @@ import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
 import Filters from "./Filters";
 import { ScrollButton } from "./ScrollToTop";
-import RecipesProps from "../Types/RecipesProps.types";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { queryParams } from "../Types/ParamType.types";

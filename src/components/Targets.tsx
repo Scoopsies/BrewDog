@@ -7,8 +7,8 @@ const Targets = ({beer} : {beer: BeerType}) => {
         <h3>Targets:</h3>
         <div className="target">
             <div>
-              <div>{`Pre-boil Volume: ${beer.boil_volume.value} ${beer.boil_volume.unit}`}</div>
-              <div>{`Final Volume: ${beer.volume.value} ${beer.volume.unit}`}</div>
+              <div>{`Pre-boil Volume: ${Math.round(beer.boil_volume.value)} ${beer.boil_volume.unit}`}</div>
+              <div>{`Final Volume: ${Math.round(beer.volume.value)} ${beer.volume.unit}`}</div>
               <div>{`Original Gravity: ${(beer.target_og / 1000).toFixed(3)}`}</div>
               <div>{`Final Gravity: ${(beer.target_fg / 1000).toFixed(3)}`}</div>
             </div>

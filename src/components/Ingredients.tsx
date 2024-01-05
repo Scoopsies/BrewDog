@@ -4,7 +4,6 @@ const Ingredients = ({beer} : {beer: BeerType}) => {
 
   return (
     <div className="ingredients">
-      <h3>Ingredients:</h3>
       <div className="ingredientPair">
         <ul className="malt">
           <h4>Malt:</h4>
@@ -12,7 +11,7 @@ const Ingredients = ({beer} : {beer: BeerType}) => {
               beer.ingredients.malt.map((_malt, index) => {
                 return (
                     <li key={index}>{`
-                    ${_malt.amount.value}
+                    ${_malt.amount.value.toFixed(1)}
                     ${_malt.amount.unit}
                     ${_malt.name}`}</li>
                 )
@@ -26,7 +25,7 @@ const Ingredients = ({beer} : {beer: BeerType}) => {
               return (
                 <div key={index}>
                     <li>{`
-                    ${hop.amount.value}
+                    ${hop.amount.value.toFixed(1)}
                     ${hop.amount.unit}
                     ${hop.name}
                     @ ${hop.add} ${hop.add === 'dry hop' ? '' : 'of boil'}

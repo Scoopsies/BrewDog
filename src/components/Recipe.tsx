@@ -55,7 +55,10 @@ const Recipe = () => {
           <h4>{`"${beer.tagline}"`}</h4>
           <div>{beer.description}</div>
           <FoodPairings beer={beer} />
+          <h3>Ingredients:</h3>
+          <div>
           <button onClick={handleClick}>{measurement ? 'convert to Imperial' : 'convert to Metric'}</button>
+          </div>
           <Ingredients beer={beer} />
           <Targets beer={beer} />
           <Method beer={beer} />

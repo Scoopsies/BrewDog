@@ -71,12 +71,14 @@ const Card = ({ beer} : {beer: BeerType}) => {
           <div className="cardRight">
             <div className="ingredients">
               <div className="cardTitle">Hops:</div>
-              {ingredientList(beer.ingredients.hops)}
+              <div className="hops">{ingredientList(beer.ingredients.hops)}</div>
             </div>
 
             <div className="ingredients">
               <div className="cardTitle">Malt:</div>
-              {ingredientList(beer.ingredients.malt)}
+              <div className="malt">
+                {ingredientList(beer.ingredients.malt)}
+              </div>
             </div>
 
             <div className="ingredients">

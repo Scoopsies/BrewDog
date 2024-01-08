@@ -49,23 +49,34 @@ const Recipe = () => {
 
   if (data) return (
     <div>
-      <Link to='/'>back to all recipes</Link>
       <div className="recipe">
-          <Card beer={beer} />
-          <h4>{`"${beer.tagline}"`}</h4>
+          <h1 className="title">{beer.name}</h1>          
+          <div className="imageContainer">
+            <img className="image"
+              src={
+                beer.image_url
+                  ? beer.image_url
+                  : "https://images.punkapi.com/v2/keg.png"
+              }
+            />
+          </div>
+          <h4 className="italic">{`"${beer.tagline}"`}</h4>
           <div>{beer.description}</div>
           <FoodPairings beer={beer} />
-          <h3>Ingredients:</h3>
+          <h2 className="title">Ingredients:</h2>
+          <br/>
           <div>
           <button onClick={handleClick}>{measurement ? 'convert to Imperial' : 'convert to Metric'}</button>
           </div>
           <Ingredients beer={beer} />
           <Targets beer={beer} />
           <Method beer={beer} />
-          <h3>Brewers Tips:</h3>
+          <h2 className="title">Brewers Tips:</h2>
           <p>{beer.brewers_tips}</p>
+          <br/>
+          <Link to='/' >Back to all recipes</Link>
       </div>
-      <Link to='/' >back to all recipes</Link>
+
     </div>
   );
 };

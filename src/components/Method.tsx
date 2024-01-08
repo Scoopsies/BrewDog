@@ -2,18 +2,25 @@ import BeerType from "../Types/BeerType.types"
 
 const Method = ({beer} : {beer: BeerType}) => {
   const {method} = beer
+
+  const capitalizeFirst = (word : string) => {
+    const first = word.charAt(0).toUpperCase()
+    const remaining = word.slice(1, word.length)
+    return first + remaining
+  }
+
   return (
     <div >
-        <h3>Method:</h3>
+        <h2 className="title">Method:</h2>
         <ul className='method'>
 
           <div>
-            <h5>{method.mash_temp.length === 1 ?`Mash Temperature:` : 'Mash Temperatures:'}</h5>
+            <h4>{method.mash_temp.length === 1 ?`Mash Temperature:` : 'Mash Temperatures:'}</h4>
             {
               method.mash_temp.map((mash, index) => {
                 return (
                   <div key={index}>
-                    {`${mash.temp.value} ${mash.temp.unit} for ${mash.duration} minutes`}
+                    {`${mash.temp.value}° ${capitalizeFirst(mash.temp.unit)}${mash.duration ? ` for ${mash.duration} minutes` : ''}`}
                   </div>
                 )
               })
@@ -21,8 +28,8 @@ const Method = ({beer} : {beer: BeerType}) => {
           </div>
 
           <div>
-            <h5>Fermentation:</h5>
-            <div>{`${method.fermentation.temp.value} ${method.fermentation.temp.unit}`}</div>
+            <h4>Fermentation:</h4>
+            <div>{`${method.fermentation.temp.value}° ${capitalizeFirst(method.fermentation.temp.unit)}`}</div>
           </div>
         </ul>
     </div>

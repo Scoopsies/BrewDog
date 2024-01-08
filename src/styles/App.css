@@ -10,6 +10,11 @@ img {
     /* padding: 0px 30px; */
 }
 
+#root {
+    display: flex;
+    justify-content: center;
+}
+
 .cardLeft {
     display: flex;
     flex-direction: column;
@@ -45,15 +50,21 @@ img {
     color: black;
 }
 
+.image {
+    background-color: rgb(63, 176, 221);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.title {
+    text-decoration: underline;
+    font-weight: bolder;
+}
+
 .cardTop {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.ingredients {
-    text-align: center;
-    padding: 5px;
 }
 
 .cardRight {
@@ -114,7 +125,6 @@ li {
 }
 
 .recipe {
-    border: 1px red solid;
     display: flex;
     flex-direction: column;
     background-color: black;
@@ -139,7 +149,7 @@ li {
 
 .method,
 .target,
-.ingredientPair,
+.ingredients,
 .pairings {
     display: flex;
     justify-content: space-around;
@@ -189,6 +199,10 @@ label {
     bottom: 0;
     right: 0;
     padding: 0.25rem;
+}
+
+.italic {
+    font-style: italic;
 }
 
 
@@ -256,4 +270,22 @@ button:active {
         gap: 0.5rem;
         justify-content: center;
     }
+
+    .app {
+        max-width: 80%;
+    }
+}
+
+@media (min-width: 1500px) {
+    .app {
+        max-width: 65%;
+    }
+}
+
+@media (hover:none) {
+
+    button:hover {
+        box-shadow: none;
+        transform: translateY(-2px);
+      }
 }

@@ -7,45 +7,35 @@ import { ScrollButton } from "./ScrollToTop";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { queryParams } from "../Types/ParamType.types";
+import { useLocation } from "react-router-dom";
 
 const Recipes = () => {
 
-  const initialQueryParams = {
-    beer_name: "",
-    abv_lt: 0,
-    abv_gt: 0,
-    ibu_lt: 0,
-    ibu_gt: 0,
-  };
+  // const initialQueryParams = {
+  //   beer_name: "",
+  //   abv_lt: 0,
+  //   abv_gt: 0,
+  //   ibu_lt: 0,
+  //   ibu_gt: 0,
+  // };
 
-  const [queryParams, setQueryParams] = useState(initialQueryParams);
-
-  const queryKey: [string, queryParams] = ["beers", queryParams];
-
-  const params = Object.entries(queryParams)
-    .filter((pair) => pair[1])
-    .map((pair) => pair.join("="))
-    .join("&");
+  // const [queryParams, setQueryParams] = useState(initialQueryParams);
+  const {search} = useLocation()
 
   const fetchData = async ({
     pageParam,
-    queryKey,
   }: {
     pageParam?: number;
-    queryKey: [string, queryParams];
+    queryKey: string[];
   }): Promise<any> => {
-    const params = Object.entries(queryKey[1])
-      .filter((pair) => pair[1])
-      .map((pair) => pair.join("="))
-      .join("&");
     const { data } = await axios.get(
-      `https://api.punkapi.com/v2/beers?page=${pageParam}&${params}`
+      `https://api.punkapi.com/v2/beers?page=${pageParam}&${search.slice(1, search.length)}`
     );
     return data;
   };
 
   const {fetchNextPage, hasNextPage, isLoading, isError, data, error} = useInfiniteQuery({
-    queryKey,
+    queryKey: ['beers', search],
     queryFn: fetchData,
     initialPageParam: 1,
     getNextPageParam: (lastPage, allPages) => {
@@ -75,9 +65,9 @@ const Recipes = () => {
   return (
     <div>
       <Filters
-        queryParams={queryParams}
-        setQueryParams={setQueryParams}
-        initialQueryParams={initialQueryParams}
+        // queryParams={queryParams}
+        // setQueryParams={setQueryParams}
+        // initialQueryParams={initialQueryParams}
       />
       <div className="recipeContainer">{content}</div>
       <div className="loading">

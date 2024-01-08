@@ -21,7 +21,7 @@ const Ingredients = ({beer} : {beer: BeerType}) => {
             </div>
           </ul>
       </div>
-      
+
       <div className="ingredient">
         <h4>Hops:</h4>
         <ul className="hops">
@@ -34,7 +34,7 @@ const Ingredients = ({beer} : {beer: BeerType}) => {
                     ${hop.amount.value.toFixed(1)}
                     ${hop.amount.unit}
                     ${hop.name}
-                    @ ${hop.add} ${hop.add === 'dry hop' ? '' : 'of boil'}
+                    at ${hop.add} ${hop.add === 'dry hop' ? '' : 'of boil'}
                     (for ${hop.attribute}${hop.attribute === 'aroma' ? '' : 'ing' })`}</li>
                 </div>
               )

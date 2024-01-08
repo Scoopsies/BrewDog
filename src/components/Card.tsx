@@ -69,19 +69,19 @@ const Card = ({ beer} : {beer: BeerType}) => {
           </div>
 
           <div className="cardRight">
-            <div className="ingredients">
+            <div className="ingredient">
               <div className="cardTitle">Hops:</div>
               <div className="hops">{ingredientList(beer.ingredients.hops)}</div>
             </div>
 
-            <div className="ingredients">
+            <div className="ingredient">
               <div className="cardTitle">Malt:</div>
               <div className="malt">
                 {ingredientList(beer.ingredients.malt)}
               </div>
             </div>
 
-            <div className="ingredients">
+            <div className="ingredient">
               <div className="cardTitle">Yeast:</div>
               <div>{beer.ingredients.yeast}</div>
             </div>

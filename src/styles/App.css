@@ -4,6 +4,16 @@ html {
     scroll-behavior: smooth;
 }
 
+.link {
+    text-decoration: none;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 img {
     width: auto;
     height: 250px;
@@ -13,6 +23,10 @@ img {
 #root {
     display: flex;
     justify-content: center;
+}
+
+.pageTitle {
+    margin-bottom: 0.5rem;
 }
 
 .cardLeft {
@@ -167,6 +181,7 @@ li {
     display: flex;
     justify-content: center;
     margin-bottom: 2rem;
+    padding-top: 2rem;
 }
 
 form {

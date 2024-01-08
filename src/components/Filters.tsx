@@ -18,7 +18,6 @@ const Filters = () => {
       ...prevQueryParams,
       [name]: value,
     }));
-    console.log(formData)
   }
 
   const clearParams = () => {
@@ -32,7 +31,6 @@ const Filters = () => {
     .filter((pair) => pair[1])
     .map((pair) => pair.join("="))
     .join("&");
-    console.log(params)
     setSearchParams(params)
     setFilterMode(false);
   }
@@ -96,7 +94,7 @@ const Filters = () => {
           />
         </label>
         <div className="filterButtons">
-          <button>submit</button>
+          <button>Search</button>
           <button type="button" onClick={clearParams}>Clear</button>
         </div>
         <br />

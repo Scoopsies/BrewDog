@@ -36,14 +36,15 @@ const Card = ({ beer} : {beer: BeerType}) => {
     };
 
   return (
+    <Link className="link" to={`beer/${beer.id}`}>
     <div className="card">
       <div className="cardContent">
 
 
         <div className="cardTop">
-            <Link to={`beer/${beer.id}`}>
+            {/* <Link to={`beer/${beer.id}`}> */}
               <h3 className="cardTitle">{beer.name}</h3>
-            </Link>
+            {/* </Link> */}
             <div className="stats">
               <div className="stat">{beer.abv ? `ABV: ${beer.abv}%` : null}</div>
               <div className="stat">{beer.ibu ? `IBU: ${beer.ibu}` : null}</div>
@@ -93,6 +94,7 @@ const Card = ({ beer} : {beer: BeerType}) => {
         </div>
       </div>
     </div>
+    </Link>
   );
 };
 

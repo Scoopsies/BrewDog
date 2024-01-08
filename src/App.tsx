@@ -8,7 +8,8 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Diy Dog</h1>
+      <h1 className="pageTitle">DIY Dog</h1>
+      <div className="italic">Click any recipe card to view recipe.</div>
       <Routes>
         <Route path="/" element={<Recipes/>}/>
         <Route path="/beer/:id" element={<Recipe />} />

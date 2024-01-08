@@ -3,10 +3,8 @@ import FoodPairings from "./FoodPairings";
 import Ingredients from "./Ingredients";
 import Targets from "./Targets";
 import Method from "./Method";
-import Card from "./Card";
-import BeerType from "../Types/BeerType.types";
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -16,6 +14,7 @@ import conversions from "../functions/conversions";
 const Recipe = () => {
   const [measurement, setMeasurement] = useState(true);
   const {id} = useParams()
+  const {search} = useLocation()
 
   const fetchData = async() => {
     const {data} = await axios.get(
@@ -74,7 +73,7 @@ const Recipe = () => {
           <h2 className="title">Brewers Tips:</h2>
           <p>{beer.brewers_tips}</p>
           <br/>
-          <Link to='/' >Back to all recipes</Link>
+          <Link to={`/${search ? search : ''}`} >Back to all recipes</Link>
       </div>
 
     </div>

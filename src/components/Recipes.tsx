@@ -47,7 +47,7 @@ const Recipes = () => {
 
   const recipes = data?.pages.map((beers: BeerType[]) =>
     beers.map((beer: BeerType) => {
-      return <Card key={beer.id} beer={beer} />;
+      return <Card key={beer.id} beer={beer} search={search} />;
     })
   );
 

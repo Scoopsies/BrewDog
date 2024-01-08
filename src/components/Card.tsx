@@ -1,7 +1,7 @@
 import BeerType from "../Types/BeerType.types";
 import { Link } from "react-router-dom";
 
-const Card = ({ beer} : {beer: BeerType}) => {
+const Card = ({ beer, search} : {beer: BeerType, search: string}) => {
 
   // Removes duplicate hop or malt and from array and lists out as seperate divs
   const ingredientList = (hopOrMalt : {name: string}[]) => {
@@ -36,15 +36,13 @@ const Card = ({ beer} : {beer: BeerType}) => {
     };
 
   return (
-    <Link className="link" to={`beer/${beer.id}`}>
+    <Link className="link" to={`beer/${beer.id}${search ? search :''}`}>
     <div className="card">
       <div className="cardContent">
 
 
         <div className="cardTop">
-            {/* <Link to={`beer/${beer.id}`}> */}
               <h3 className="cardTitle">{beer.name}</h3>
-            {/* </Link> */}
             <div className="stats">
               <div className="stat">{beer.abv ? `ABV: ${beer.abv}%` : null}</div>
               <div className="stat">{beer.ibu ? `IBU: ${beer.ibu}` : null}</div>

@@ -137,6 +137,12 @@ li {
     padding-bottom: 0.5rem ;
 }
 
+.recipes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .recipe {
     display: flex;
     flex-direction: column;

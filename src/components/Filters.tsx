@@ -37,7 +37,7 @@ const Filters = () => {
 
   if (!filterMode) return (
     <div className="filters">
-    <button onClick={() => setFilterMode(!filterMode)}>Filter</button>
+    <button onClick={() => setFilterMode(!filterMode)}>Search and Filter</button>
   </div>
   )
 

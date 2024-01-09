@@ -11,7 +11,7 @@ const Method = ({beer} : {beer: BeerType}) => {
 
   return (
     <div >
-        <h2 className="title">Method:</h2>
+        <h2 className="title">Method</h2>
         <ul className='method'>
 
           <div>

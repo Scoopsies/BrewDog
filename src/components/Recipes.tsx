@@ -52,7 +52,8 @@ const Recipes = () => {
   );
 
   return (
-    <div>
+    <div className="recipes" >
+      <div className="italic">Click any recipe card to view recipe.</div>
       <Filters/>
       <div className="recipeContainer">{recipes}</div>
       <div className="loading">

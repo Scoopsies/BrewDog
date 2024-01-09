@@ -4,7 +4,7 @@ import BeerType from "../Types/BeerType.types"
 const Targets = ({beer} : {beer: BeerType}) => {
   return (
     <div className='specifications'>
-        <h2 className="title">Targets:</h2>
+        <h2 className="title">Targets</h2>
         <div className="target">
             <div>
               <div>{`Pre-boil Volume: ${Math.round(beer.boil_volume.value)} ${beer.boil_volume.unit}`}</div>

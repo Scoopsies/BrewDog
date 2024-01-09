@@ -227,7 +227,8 @@ label {
 }
 
 
-button {
+button,
+.button {
   align-items: center;
   appearance: none;
   background-image: radial-gradient(100% 100% at 100% 0, rgb(104, 131, 207) 0, rgb(63, 176, 221) 100%);
@@ -257,16 +258,19 @@ button {
   font-size: 18px;
 }
 
-button:focus {
+button:focus,
+.button:focus {
   box-shadow: rgb(63, 176, 221) 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
 }
 
-button:hover {
+button:hover,
+.button:hover {
   box-shadow: rgb(63, 176, 221) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgb(0, 66, 92) 0 -3px 0 inset;
   transform: translateY(-2px);
 }
 
-button:active {
+button:active,
+.button:active {
   box-shadow: rgb(63, 176, 221) 0 3px 7px inset;
   transform: translateY(2px);
 }

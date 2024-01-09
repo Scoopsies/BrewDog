@@ -6,7 +6,7 @@ import Method from "./Method";
 import { useQuery } from "@tanstack/react-query";
 import { useParams, useLocation } from "react-router-dom";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import conversions from "../functions/conversions";
 
@@ -15,6 +15,7 @@ const Recipe = () => {
   const [measurement, setMeasurement] = useState(true);
   const {id} = useParams()
   const {search} = useLocation()
+  const navigate = useNavigate()
 
   const fetchData = async() => {
     const {data} = await axios.get(
@@ -71,8 +72,10 @@ const Recipe = () => {
           <Method beer={beer} />
           <h2 className="title">Brewers Tips</h2>
           <p>{beer.brewers_tips}</p>
-          <br/>
-          <Link to={`/${search ? search : ''}`} >Back to all recipes</Link>
+          <br />
+          <div>
+          <Link className="button" onClick={() => navigate(-1)} to={`/${search ? search : ''}`} >Back to all recipes</Link>
+          </div>
       </div>
 
     </div>

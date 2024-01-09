@@ -2,6 +2,8 @@ import BeerType from "../Types/BeerType.types"
 
 const Ingredients = ({beer} : {beer: BeerType}) => {
 
+  console.log(beer.method.twist)
+
   return (
     <div className="ingredients">
       <div className="ingredient">
@@ -48,21 +50,24 @@ const Ingredients = ({beer} : {beer: BeerType}) => {
         <ul className='yeast'>
           <li>{beer.ingredients.yeast}</li>
         </ul>
+      </div>
         {
         beer.method.twist ? (
-        <ul className="twist">
+        <div className="ingredient">
           <h4>Twist:</h4>
-          {
-            beer.method.twist.split(',').map((_twist, index) => {
-              return (
-                <li key={index}>{_twist}</li>
-              )
-            })
-          }
-        </ul>)
+          <ul className="twist">
+            {
+              beer.method.twist.split('. ').map((_twist, index) => {
+                return (
+                  <li key={index}>{_twist}</li>
+                )
+              })
+            }
+          </ul>
+        </div>)
         : null
         }
-      </div>
+      
   </div>
   )
 }

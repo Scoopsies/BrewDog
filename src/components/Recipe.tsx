@@ -47,7 +47,7 @@ const Recipe = () => {
   }
 
   if (data) return (
-    <div>
+    <div className="recipeContainer">
       <div className="recipe">
           <h1 className="title">{beer.name}</h1>          
           <div className="imageContainer">

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom"
 
 export const scrollToTop = () => {
-    window.scrollTo(0, 0);
+     window.scrollTo(0,0)
 }
 
 export const ScrollButton = () => {
@@ -33,11 +33,11 @@ export const ScrollButton = () => {
 } 
 
 const ScrollToTop = () => {
-    const {pathname} = useLocation();
-
+    const {pathname, state} = useLocation();
     useEffect(() => {
-        scrollToTop()
-    }, [pathname]);
+        if (state && pathname === '/') window.scrollTo(0, state.scrollPosistion)
+        else window.scrollTo(0,0)
+    }, [pathname])
     
     return null;
 }

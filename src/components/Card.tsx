@@ -36,7 +36,7 @@ const Card = ({ beer, search} : {beer: BeerType, search: string}) => {
     };
 
   return (
-    <Link className="link" to={`beer/${beer.id}${search ? search :''}`}>
+    <Link className="link" state={{scrollPosistion : scrollY}} to={`beer/${beer.id}${search ? search :''}`}>
     <div className="card">
       <div className="cardContent">
 

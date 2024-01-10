@@ -14,8 +14,9 @@ import conversions from "../functions/conversions";
 const Recipe = () => {
   const [measurement, setMeasurement] = useState(true);
   const {id} = useParams()
-  const {search} = useLocation()
-  const navigate = useNavigate()
+  const {search, state} = useLocation()
+
+  console.log(state)
 
   const fetchData = async() => {
     const {data} = await axios.get(
@@ -74,7 +75,7 @@ const Recipe = () => {
           <p>{beer.brewers_tips}</p>
           <br />
           <div>
-          <Link className="button" onClick={() => navigate(-1)} to={`/${search ? search : ''}`} >Back to all recipes</Link>
+          <Link className="button" state={{scrollPosistion: state ? state.scrollPosistion : 0}}  to={`/${search ? search : ''}`} >Back to all recipes</Link>
           </div>
       </div>
 

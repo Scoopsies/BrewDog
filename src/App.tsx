@@ -5,7 +5,6 @@ import Recipe from "./components/Recipe";
 
 function App() {
 
-
   return (
     <div className="app">
       <h1 className="pageTitle">DIY Dog</h1>

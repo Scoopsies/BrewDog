@@ -93,8 +93,8 @@ img {
     text-overflow: ellipsis;
     word-wrap: break-word;
     display: block;
-    line-height: 1em; /* a */
-    max-height: 1em;
+    line-height: 2em; /* a */
+    max-height: 2em;
 }
 
 .image {
@@ -332,6 +332,15 @@ button:active,
         flex-wrap: wrap;
         gap: 0.5rem;
         justify-content: center;
+        font-size: 1em;
+    }
+
+    .cardHops,
+    .cardMalt {
+        line-height: 1em;
+        max-height: 4em;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .recipe {

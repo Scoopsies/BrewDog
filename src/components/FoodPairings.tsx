@@ -2,9 +2,9 @@ import BeerType from "../Types/BeerType.types"
 
 const FoodPairings = ({beer}: {beer: BeerType}) => {
   return (
-    <ul className='foodPairings'>
+    <ul>
         <h2 className="title">Food Pairings</h2>
-        <div className='pairings'>
+        <div className='food pairings'>
             {beer.food_pairing.map(food => {
                 return (
                   <div>

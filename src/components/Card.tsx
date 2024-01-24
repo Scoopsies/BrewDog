@@ -9,8 +9,8 @@ const Card = ({ beer, search} : {beer: BeerType, search: string}) => {
     const filtered = ingredients.filter(
       (ingredient, index) => ingredients.indexOf(ingredient) === index
     );
-    return filtered.map((ingredient) => {
-      return <div key={ingredient}>{ingredient}</div>;
+    return filtered.map((ingredient, index) => {
+      return <div key={index}>{ingredient}</div>;
     });
   };
 

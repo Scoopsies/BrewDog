@@ -8,6 +8,15 @@ html {
     text-decoration: none;
 }
 
+nav {
+    display: flex;
+    justify-content: space-around;
+    justify-self: stretch;
+    border: 1px red solid;
+    gap: 30px;
+    padding: 0.5rem;
+}
+
 .app {
     display: flex;
     flex-direction: column;
@@ -31,6 +40,19 @@ img {
     font-family: "Allerta Stencil", sans-serif;
     font-weight: 400;
     font-style: normal;
+}
+
+.nav {
+    font-family: "Allerta Stencil", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    padding: 0.25rem 1rem;
+}
+
+.selected {
+    color: black;
+    background-color: rgb(63, 176, 221);
 }
 
 .cardLeft {
@@ -62,10 +84,17 @@ img {
 }
 
 .cardTitle {
+    font-size: 1em;
     font-weight: bolder;
     margin: 0;
     padding: 5px;
     color: black;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    display: block;
+    line-height: 1em; /* a */
+    max-height: 1em;
 }
 
 .image {

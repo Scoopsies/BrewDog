@@ -59,7 +59,10 @@ const Card = ({ beer, search} : {beer: BeerType, search: string}) => {
             <div className="imageContainer">
             <img
               src={`../images/${beer.id}.png`}
-              onError={(e) => { e.target.src = '../images/keg.png'; }}
+              onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => { 
+                const target = e.target as HTMLImageElement;
+                target.src = '../images/keg.png';
+              }}
             />
             </div>
           </div>

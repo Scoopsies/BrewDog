@@ -10,20 +10,22 @@ import { useLocation } from "react-router-dom";
 const punkapi = import.meta.env.VITE_punkAPI
 
 
+
 const Recipes = () => {
   const {search} = useLocation()
-  console.log(punkapi)
 
   const fetchData = async ({
     pageParam,
+    queryKey
   }: {
     pageParam?: number;
     queryKey: string[];
   }): Promise<any> => {
     console.log('fetching data')
+    console.log(queryKey)
+    console.log(punkapi)
     const { data } = await axios.get(
-      punkapi
-      // isDevMode ? `http://localhost:8080/beers` : `https://brewdog-api.onrender.com/?page=${pageParam}`
+      punkapi + '/beers'
       // `http://localhost:8080/beers` //For dev
       // `https://brewdog-api.onrender.com/beers` //For production
       // `https://api.punkapi.com/v2/beers?page=${pageParam}&${search.slice(1)}`

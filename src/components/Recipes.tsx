@@ -17,8 +17,10 @@ const Recipes = () => {
     pageParam?: number;
     queryKey: string[];
   }): Promise<any> => {
+    console.log('fetching data')
     const { data } = await axios.get(
-      `https://api.punkapi.com/v2/beers?page=${pageParam}&${search.slice(1)}`
+      `https://brewdog-api.onrender.com/punkapi?page=${pageParam}`
+      // `https://api.punkapi.com/v2/beers?page=${pageParam}&${search.slice(1)}`
     );
     return data;
   };

@@ -10,6 +10,7 @@ import { useLocation } from "react-router-dom";
 
 const Recipes = () => {
   const {search} = useLocation()
+  const isDevMode = import.meta.env.DEV
 
   const fetchData = async ({
     pageParam,
@@ -19,7 +20,9 @@ const Recipes = () => {
   }): Promise<any> => {
     console.log('fetching data')
     const { data } = await axios.get(
-      `https://brewdog-api.onrender.com/punkapi?page=${pageParam}`
+      isDevMode ? `http://localhost:8080/beers` : `https://brewdog-api.onrender.com/?page=${pageParam}`
+      // `http://localhost:8080/beers` //For dev
+      // `https://brewdog-api.onrender.com/?page=${pageParam}` //For production
       // `https://api.punkapi.com/v2/beers?page=${pageParam}&${search.slice(1)}`
     );
     return data;

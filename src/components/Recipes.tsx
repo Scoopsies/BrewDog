@@ -7,10 +7,12 @@ import { ScrollButton } from "./ScrollToTop";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+const punkapi = import.meta.env.VITE_punkAPI
+
 
 const Recipes = () => {
   const {search} = useLocation()
-  console.log(import.meta)
+  console.log(punkapi)
 
   const fetchData = async ({
     pageParam,
@@ -20,9 +22,10 @@ const Recipes = () => {
   }): Promise<any> => {
     console.log('fetching data')
     const { data } = await axios.get(
+      punkapi
       // isDevMode ? `http://localhost:8080/beers` : `https://brewdog-api.onrender.com/?page=${pageParam}`
       // `http://localhost:8080/beers` //For dev
-      `https://brewdog-api.onrender.com/?page=${pageParam}` //For production
+      // `https://brewdog-api.onrender.com/beers` //For production
       // `https://api.punkapi.com/v2/beers?page=${pageParam}&${search.slice(1)}`
     );
     return data;

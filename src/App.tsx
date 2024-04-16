@@ -9,7 +9,6 @@ import Credits from "./components/Credits";
 
 function App() {
   const {pathname} = useLocation()
-  console.log(pathname)
   const selected = (path : string) => {
     return path === pathname ? 'selected nav' : 'nav' 
   }

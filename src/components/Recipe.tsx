@@ -9,6 +9,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import conversions from "../functions/conversions";
+const punkapi = import.meta.env.VITE_punkAPI
 
 
 const Recipe = () => {
@@ -16,13 +17,13 @@ const Recipe = () => {
   const {id} = useParams()
   const {search, state} = useLocation()
 
-  console.log(state)
-
   const fetchData = async() => {
+    console.log(punkapi + `/beer/${id}`)
     const {data} = await axios.get(
-      `https://api.punkapi.com/v2/beers/${id}`
+      punkapi + `/beer/${id}`
     )
-    return data[0];
+    console.log(data)
+    return data;
   }
 
   const queryKey : [string] = ['beer']

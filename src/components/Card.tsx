@@ -2,7 +2,6 @@ import BeerType from "../Types/BeerType.types";
 import { Link } from "react-router-dom";
 
 const Card = ({ beer, search} : {beer: BeerType, search: string}) => {
-   console.log(beer.image_url)
   // Removes duplicate hop or malt and from array and lists out as seperate divs
   const ingredientList = (hopOrMalt : {name: string}[]) => {
     const ingredients = hopOrMalt.map((ingredient) => ingredient.name);

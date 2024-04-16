@@ -21,7 +21,6 @@ const Recipes = () => {
     pageParam?: number;
     queryKey: string[];
   }): Promise<any> => {
-    console.log('fetching data')
     const { data } = await axios.get(
       punkapi + '/beers'
       // `http://localhost:8080/beers` //For dev

@@ -2,7 +2,7 @@ import BeerType from "../Types/BeerType.types";
 import { Link } from "react-router-dom";
 
 const Card = ({ beer, search} : {beer: BeerType, search: string}) => {
-
+   console.log(beer.image_url)
   // Removes duplicate hop or malt and from array and lists out as seperate divs
   const ingredientList = (hopOrMalt : {name: string}[]) => {
     const ingredients = hopOrMalt.map((ingredient) => ingredient.name);
@@ -59,9 +59,11 @@ const Card = ({ beer, search} : {beer: BeerType, search: string}) => {
             <div className="imageContainer">
                 <img
                   src={
-                    beer.image_url
-                      ? beer.image_url
-                      : "https://images.punkapi.com/v2/keg.png"
+                    beer.image_url && beer.image_url != 'https://images.punkapi.com/v2/keg.png'
+                      ? beer.image_url === 'https://images.punkapi.com/v2/cask.png'
+                      ? '../images/cask.png'
+                      : `../images/${beer.id}.png`
+                      : "../images/keg.png"
                   }
                 />
             </div>

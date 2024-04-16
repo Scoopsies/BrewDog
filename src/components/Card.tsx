@@ -57,13 +57,13 @@ const Card = ({ beer, search} : {beer: BeerType, search: string}) => {
         <div className="cardCenter">
           <div className="cardLeft">
             <div className="imageContainer">
-            <img
-              src={`../images/${beer.id}.png`}
-              onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => { 
-                const target = e.target as HTMLImageElement;
-                target.src = '../images/keg.png';
-              }}
-            />
+                <img
+                  src={
+                    beer.image_url
+                      ? beer.image_url
+                      : "https://images.punkapi.com/v2/keg.png"
+                  }
+                />
             </div>
           </div>
 

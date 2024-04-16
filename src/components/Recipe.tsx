@@ -18,11 +18,9 @@ const Recipe = () => {
   const {search, state} = useLocation()
 
   const fetchData = async() => {
-    console.log(punkapi + `/beer/${id}`)
     const {data} = await axios.get(
       punkapi + `/beer/${id}`
     )
-    console.log(data)
     return data;
   }
 

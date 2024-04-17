@@ -79,7 +79,7 @@ const Filters = () => {
           <input
             type="number"
             name="ibu_lt"
-            value={formData.ibu_lt ? formData.abv_lt : ''}
+            value={formData.ibu_lt ? formData.ibu_lt : ''}
             onChange={handleChange}
           />
         </label>

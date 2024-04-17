@@ -26,7 +26,7 @@ const Recipe = () => {
 
   const queryKey : [string] = ['beer']
 
-  const {data, isLoading, isError} = useQuery({
+  const {data, isLoading, isError, error} = useQuery({
     queryKey,
     queryFn: fetchData
   })
@@ -36,7 +36,7 @@ const Recipe = () => {
   )
 
   if (isError) return (
-    <div>Error</div>
+    <div>error</div>
   )
   
   let beer = data;

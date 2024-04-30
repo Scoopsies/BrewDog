@@ -16,13 +16,7 @@ function App() {
   return (
     <div className="app">
       <h1 className="pageTitle">DIY DOG</h1>
-      {/* <nav>
-        <Link className={selected('/')} to='/' >Home</Link>
-        <Link className={selected('/recipes')} to='/recipes' >Recipes</Link>
-        <Link className={selected('/credits')} to='/credits'>Credits</Link>
-      </nav> */}
       <Routes>
-        {/* <Route path="/" element={<Home/>} /> */}
         <Route path="/" element={<Recipes/>}/>
         <Route path="/beer/:id" element={<Recipe />} />
         <Route path="/credits" element={<Credits />}/>
